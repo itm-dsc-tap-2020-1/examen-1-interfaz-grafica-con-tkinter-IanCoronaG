@@ -20,7 +20,12 @@ def calif():
     if rb2.get() == 2:
         cal+=20
 
-    mbox.showinfo('Calificacion', cal)  
+    if  ("selected" in c1.state() or "selected" in c3.state()) and not("selected" in c2.state()) and not("selected" in c4.state()) and not("selected" in c5.state()):
+        cal+=20
+    if cal==0:
+        mbox.showinfo('Calificacion', '0')  
+    else:
+        mbox.showinfo('Calificacion', cal)  
 
 
 ################################  PREGUNTAS                      #################################################################
