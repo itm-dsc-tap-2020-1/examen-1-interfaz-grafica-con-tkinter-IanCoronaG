@@ -7,12 +7,30 @@ from tkinter import messagebox as mbox
 ################################  METODOS  ##########################################################################################
 ventana=tk.Tk()
 
+def calif():
+    cal=0
+    if res1.get() == "binario":
+        cal+=20
+    if res2.get() == "procesador":
+        cal+=20
+
+    if rb.get() == 1:
+        cal+=20
+    
+    if rb2.get() == 2:
+        cal+=20
+
+    mbox.showinfo('Calificacion', cal)  
+
+
 ################################  PREGUNTAS                      #################################################################
 
 ventana.title("EXAMEN 01 PYTHON GRÁFICO")
 ventana.resizable(0, 0)
 tabex=ttk.LabelFrame(ventana, text="EXAMEN DE COMPUTACIÓN")
 tabex.grid(column=0, row=1, padx=20, pady=20)
+
+ttk.Label(tabex, text="Las Respuestas se ingresan en minúsculas.").grid(column=0, row=0, padx=5, pady=10, sticky=tk.W)
 
 ttk.Label(tabex, text="1.- Sistema numerico en que operan las computadoras: ").grid(column=0, row=2, padx=5, pady=5, sticky=tk.W)
 ttk.Label(tabex, text="2.- Nombre del componente que realiza las operaciones matematicas que hacen funcionar una computadora: ").grid(column=0, row=3, padx=5, pady=5, sticky=tk.W)
@@ -22,10 +40,10 @@ ttk.Label(tabex, text="5.- Es un periférico de una computadora: ").grid(column=
 
 ################################ RESPUESTAS  #################################################################################################
 
-r1= tk.StringVar()
-r2= tk.StringVar()
-cr1= ttk.Entry(tabex, width=28, textvariable=r1).grid(column = 1, row = 2, padx=5, pady=5, sticky=tk.W)
-cr2= ttk.Entry(tabex, width=28, textvariable=r2).grid(column = 1, row = 3, padx=5, pady=5, sticky=tk.W)
+res1= tk.StringVar()
+res2= tk.StringVar()
+cr1= ttk.Entry(tabex, width=28, textvariable=res1).grid(column = 1, row = 2, padx=5, pady=5, sticky=tk.W)
+cr2= ttk.Entry(tabex, width=28, textvariable=res2).grid(column = 1, row = 3, padx=5, pady=5, sticky=tk.W)
 
 
 
@@ -77,11 +95,14 @@ c5=ttk.Checkbutton(check, text="Disco Duro", variable=opc5)
 c1.grid(column=0,row=1, sticky=tk.W, padx=10, pady=10)
 c2.grid(column=1,row=1, sticky=tk.W, padx=10, pady=10)
 c3.grid(column=2,row=1, sticky=tk.W, padx=10, pady=10)
-c4.grid(column=0,row=1, sticky=tk.W, padx=10, pady=10)
-c5.grid(column=1,row=1, sticky=tk.W, padx=10, pady=10)
+c4.grid(column=3,row=1, sticky=tk.W, padx=10, pady=10)
+c5.grid(column=4,row=1, sticky=tk.W, padx=10, pady=10)
 
 
+#################################  CALIFICAR      ###########################################################################################33
 
+calif = ttk.Button(tabex, text="CALIFICAR", command= calif)
+calif.grid(column=2, row=12, sticky=tk.E, padx=20, pady=20)
 
 ##########################################################################################################################
 ventana.mainloop()
